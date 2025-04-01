@@ -10,7 +10,7 @@ integer i;
 
 always @(address or data_in or we) begin
   if (we) begin
-    mem[address] = data_in;
+    mem[address[13:2]] = data_in;
   end
   data_out = mem[address[13:2]];
 end
@@ -20,7 +20,9 @@ initial begin
   for (i = 0; i < 1024; i = i + 1) begin
     mem[i] = 32'h00000000;
   end
+  $display("Tentando ler memory.mem...");
   $readmemh("memory.mem", mem);
+  $display("Arquivo lido com sucesso.");
 end
 
 endmodule
