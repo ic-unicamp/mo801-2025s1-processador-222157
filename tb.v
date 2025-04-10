@@ -14,6 +14,7 @@ core dut(
 );
 
 memory m(
+  .clk(clk),
   .address(address),
   .data_in(data_out),
   .data_out(data_in),
@@ -27,8 +28,7 @@ always #1 clk = (clk===1'b0);
 initial begin
   $dumpfile("saida.vcd");
   $dumpvars(0, tb);
-  resetn = 1'b0;
-  #11 resetn = 1'b1;
+  resetn = 1'b0; #11 resetn = 1'b1;
   $display("*** Starting simulation. ***");
   #4000 $finish;
 end
