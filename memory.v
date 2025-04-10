@@ -11,6 +11,12 @@ integer i;
 
 assign data_out = mem[address[13:2]];
 
+always @(posedge clk) begin
+  if (we) begin
+    mem[address[13:2]] = data_in;
+  end
+end
+
 always @(posedge clk)
   if (we) begin
     mem[address[13:2]] = data_in;
