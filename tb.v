@@ -41,7 +41,7 @@ always @(posedge clk) begin
   end
   else if (address[11] == 1)
     if (we == 1)
-      $display("=== M[0x%h] <- 0x%h", address, data_out);
+      $display("M[0x%h] <- 0x%h", address, data_out);
     // else
     //   $display("=== M[0x%h] -> 0x%h", address, data_in);
 end

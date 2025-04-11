@@ -31,3 +31,38 @@ Seu código deve ser sintetizávelvel, isso significa que deve ser possível ger
 Você deve entregar o seu projeto através do Github Classroom, bastando fazer um *commit* e *push* do seu código. os testes serão executados automaticamente. A data limite para entrega é o último dia do mês.
 
 Seu código será avaliado com mais testes do que os que estão dispnoíveis aqui.
+
+## Testes de Instruções
+
+O formato adotado para todos os testes foi:
+- Executar as instruções que estão sendo testadas de forma a gravar um valor final em um registrador
+- Inicializa o valor `0x960` no registrador `x2` utilizando 2 vezes a instrução `addi`
+- Escreve o valor armazenado na posição de memória armazenada em `x2`, imprimindo-o na saída
+Abaixo está a lista dos arquivos de teste organizados por categoria de instrução e sua finalidade:
+
+### Instruções Tipo R
+- Testes 11 a 21 – teste simples das instruções de tipo R
+- Testes 22 a 29 – casos especiais com `overflow`, `sra` de número negativo, comparações entre negativos, deslocamentos extremos
+
+### Instruções Tipo I
+- Testes 30 a 38 – teste simples das instruções de tipo I, incluindo imediatos positivos e negativos
+
+### Instruções de Acesso à Memória (LOAD/STORE)
+- Testes 39 a 49 – combinações entre `sb`, `sh`, `sw` com `lb`, `lh`, `lw`, `lbu`, `lhu`
+  - Todos os dados são armazenados no endereço `0x80`, depois lidos do mesmo endereço (ou de um endereço deslocado) e printados
+- Testes 50 e 51 testa a sobrescrita de um `sw` anterior com um `sb` ou `sh`
+
+### Instruções Tipo B
+- Testes 52 a Teste 64 – instruções `beq`, `bne`, `blt`, `bge`, `bltu`, `bgeu`
+  - Cada uma testada com um caso em que o salto ocorre e outro em que não ocorre
+  - O teste 64 testa um loop utilizando `bne`
+
+### Instruções Tipo U (LUI e AUIPC)
+- Testes 66 a 68 - teste simples das instruções de tipo U
+
+### Outras
+- Teste 11 – teste inicial das funções base para garantir que o formato de print adotado funciona
+- Teste 65 – teste da instrução `jal` implementando a chamada e o retorno de uma função 
+- Teste 69 - verifica o valor salvo de uma instrução `jal` em `rd` 
+- Teste 70 - tenta escrever em `x0`
+- Teste 71 - teste de um código mais complexo no processador - função recursiva calculando Fibonacci(6)

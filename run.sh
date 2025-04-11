@@ -9,7 +9,9 @@ if ! iverilog -o tb *.v; then
 fi
 
 cp test/teste$1.mem memory.mem
-./tb | grep '===' > saida.out
+vvp tb > saida.out
+sed -i '/M\[/!d' saida.out test/saida$1.ok
+sed -i 's/\r//g' saida.out test/saida$1.ok
 cp saida.out test/saida$1.out
 cp saida.vcd test/saida$1.vcd
 rm saida.out saida.vcd memory.mem
