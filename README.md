@@ -65,4 +65,4 @@ Abaixo está a lista dos arquivos de teste organizados por categoria de instruç
 - Teste 65 – teste da instrução `jal` implementando a chamada e o retorno de uma função 
 - Teste 69 - verifica o valor salvo de uma instrução `jal` em `rd` 
 - Teste 70 - tenta escrever em `x0`
-- Teste 71 - teste de um código mais complexo no processador - função recursiva calculando Fibonacci(6)
+- Teste 71 - teste de um código mais complexo no processador - função recursiva calculando `Fibonacci(6)`
